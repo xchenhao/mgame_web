@@ -1,0 +1,48 @@
+{extend name="common/master"}
+
+
+{block name="css"}
+<link rel="stylesheet" href="/static/home/index/css/recharge.css"/>
+{/block}
+
+{block name="content"}
+<div class="content">
+  <div class="recharge-title">在线充值</div>
+  <div class="form-title require">充值账号</div>
+  <input class="form-input" type="text" />
+  <div class="form-title require">确认账号</div>
+  <input class="form-input" type="text" />
+  <div class="form-title">手机号</div>
+  <input class="form-input" type="text" />
+  <div class="form-title" style="font-weight: 500;margin: 20px 0;">充值金额<span>（1 元 = 10 宅喵币）</span></div>
+  <ul class="price-block">
+    <li class="active">¥10.00</li>
+    <li>¥25.00</li>
+    <li>¥50.00</li>
+    <li>¥100.00</li>
+    <li>¥200.00</li>
+    <li>¥500.00</li>
+  </ul>
+  <div class="form-title">支付方式</div>
+  <div class="pay-block">
+    <img class="active" src="/static/home/index/images/alipay.png" />
+    <img src="/static/home/index/images/wechat-pay.png" />
+  </div>
+  <div class="submit-btn">确认支付</div>
+</div>
+<script>
+  $('.price-block li').click(function () {
+    $('.price-block li').removeClass('active')
+    $(this).addClass('active')
+  })
+  $('.pay-block img').click(function () {
+    $('.pay-block img').removeClass('active')
+    $(this).addClass('active')
+  })
+  $('.submit-btn').click(function () {
+
+  })
+</script>
+{/block}
+
+{block name="js-footer"}{/block}
