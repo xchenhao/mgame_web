@@ -37,103 +37,82 @@
                 <a href="/">宅喵商城</a>
             </h1>
         </div>
-        <div class="header_search">
-            <!-- <ul id="result_lib" class="dropdown_list" style="display: none;"></ul> -->
-            <div id="for_shop" class="search_fm">
-                <div class="search_input">
-                    <input type="hidden">
-                    <label class="placeholder" for="search_key" style="display: none;">输入搜索内容~</label>
-                    <input type="text" class="search_key" name="sword" value="{:input('sword')}" id="search_key" autocomplete="off">
-                    <input type="button" value="搜索" class="search_btn" onclick="javascript: window.location.href='/home/entry/search/sword/'+$('#search_key').val()">
-                </div>
-            </div>
-        </div>
         <?php $user = \think\Session::get('user');?>
-        {if condition="!$user"}
-        <a class="btn nav-join-btn" href="/home/entry/join" style="position: relative;top: 6px;left: 260px;border-radius: 50px;font-size: 16px;border: 0;background: #e63c3c;padding: 10px 26px;color: #fff;text-decoration: none;">商家入驻</a>
-        {/if}
         <div class="header_extra">
             {if condition="!$user"}
             <p class="unlogin dc-unlogin">
-                <a href="/home/user/login" rel="nofollow" class="nav-bold">登录</a>&nbsp;<i>|</i>
-                &nbsp;<a href="/home/user/reg" rel="nofollow" class="nav-bold">注册</a>
+                <a href="#" rel="nofollow" class="nav-bold">关于我们</a>
+                <i>|</i>
+                <a href="#" rel="nofollow" class="nav-bold">在线充值</a>
+                <i>|</i>
+                <a href="#" rel="nofollow" class="nav-bold">家长监控</a>
+                <i>|</i>
+                <a href="/home/user/login" rel="nofollow" class="nav-bold">登录</a>
+                <i>|</i>
+                <a href="/home/user/reg" rel="nofollow" class="nav-bold">注册</a>
             </p>
             {else/}
+            <a href="#" rel="nofollow" class="nav-bold">关于我们</a>
+            <i>|</i>
+            <a href="#" rel="nofollow" class="nav-bold">在线充值</a>
+            <i>|</i>
+            <a href="#" rel="nofollow" class="nav-bold">家长监控</a>
             <a href="/home/user/profile" target="_blank" style="height:36px;width:36px;border-radius:50%;overflow: hidden;display: inline-block;margin-left: 10px;">
                 <img id="current_member_avatar" src="{:think\\Session::get('user.avatar') ?: '/static/home/login/images/member_head.jpg'} " height="36" width="36">
             </a>
             <a style="display: inline-block;vertical-align: top;margin-top: 10px;margin-left: 10px;" href="/home/user/logout" rel="nofollow">退出</a>
             {/if}
-            <!-- 新增购物车 -->
-            <div class="header_car fr">
-                <a href="/home/cart/index" target="_blank"><i class="cart_num">{$cartTotal['rows']?:0}</i><span></span>我的购物车</a>
-            </div>
         </div>
     </div>
 </div>
+<div class="homepage-banner"></div>
 <style>
+    .homepage-banner {
+        display: block;
+        position: relative;
+        z-index: -1;
+        width: 100%;
+        height: 300px;
+        background-image: url(/static/home/index/images/banner.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+    }
     #header {
         box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
     }
     #header .header_logo_new,
     #header .logo_new_v2 {
-        width: 126px;
-        height: 37px;
+        width: 136px;
+        height: 40px;
     }
     #header .logo_new_v2 a {
         display: inline-block;
-        width: 126px;
-        height: 37px;
+        width: 136px;
+        height: 40px;
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
         background-image: url(/static/home/index/images/logo.png);
     }
-    #header .header_search {
-        display: inline-block;
-        height: 37px;
-        width: 400px;
-        overflow: hidden;
-        margin: 0;
-        margin-left: 20px;
-        padding: 0 10px;
-        border: 0;
-        border-radius: 100px;
-        background-color: #f5f5f5;
-    }
     #header .header_extra {
-        width: 230px;
-        height: 37px;
+        width: 360px;
+        height: 40px;
         float: right;
     }
     #header .unlogin.dc-unlogin {
         display: inline-block;
-        width: 80px;
-        height: 37px;
+        width: 360px;
+        height: 40px;
         font-size: 14px;
-        line-height: 37px;
+        line-height: 40px;
     }
-    .header_search .search_btn {
-        right: 4px;
-        top: 7px;
-        width: 23px;
-        height: 23px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-image: url(/static/home/index/images/search.png);
-        background-color: transparent;
-    }
-    .header_car span {
+    .header_extra a, i {
         display: inline-block;
-        float: left;
-        margin-right: 10px;
-        width: 22px;
-        height: 22px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-image: url(/static/home/index/images/car.png);
+        vertical-align: middle;
+    }
+    .header_extra i {
+        margin: 0 8px;
     }
 </style>
 

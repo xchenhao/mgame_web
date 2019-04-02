@@ -28,17 +28,6 @@
                     <a href="/">宅喵商城</a>
                 </h1>
             </div>
-            <div class="header_search">
-                <!-- <ul id="result_lib" class="dropdown_list" style="display: none;"></ul> -->
-                <div id="for_shop" class="search_fm">
-                    <div class="search_input">
-                        <input type="hidden">
-                        <label class="placeholder" for="search_key" style="display: none;">输入搜索内容~</label>
-                        <input type="text" class="search_key" name="sword" value="{:input('sword')}" id="search_key" autocomplete="off">
-                        <input type="button" value="搜索" class="search_btn" onclick="javascript: window.location.href='/home/entry/search/sword/'+$('#search_key').val()">
-                    </div>
-                </div>
-            </div>
             <div class="header_extra">
                 {if condition="!$user"}
                 <p class="unlogin dc-unlogin">
