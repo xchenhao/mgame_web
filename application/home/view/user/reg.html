@@ -7,7 +7,7 @@
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width,maximum-scale=2.0, user-scalable=yes"/>
     <link rel="shortcut icon" href="/favicon.ico"/>
-    <title>注册新会员 - 宅喵商城</title>
+    <title>注册新会员 - 宅喵科技网</title>
     <link rel="stylesheet" href="/static/home/reg/css/en.base.css"/>
     <link rel="stylesheet" href="/static/home/reg/css/en.public.css"/>
     <link rel="stylesheet" href="/static/home/reg/css/en.dialog.css"/>
@@ -74,25 +74,8 @@
     <div class="headerLayout cfix">
         <div class="header_logo_new">
             <h1 class="logo_new_v2">
-                <a href="/">宅喵商城</a>
+                <a href="/">宅喵科技网</a>
             </h1>
-        </div>
-        <div class="header_search">
-            <!-- <ul id="result_lib" class="dropdown_list" style="display: none;"></ul> -->
-            <div id="for_shop" class="search_fm">
-                <div class="search_input">
-                    <input type="hidden">
-                    <label class="placeholder" for="search_key" style="display: none;">输入搜索内容~</label>
-                    <input type="text" class="search_key" name="sword" value="{:input('sword')}" id="search_key" autocomplete="off">
-                    <input type="button" value="搜索" class="search_btn" onclick="javascript: window.location.href='/home/entry/search/sword/'+$('#search_key').val()">
-                </div>
-            </div>
-        </div>
-        <div class="header_extra">
-            <!-- 新增购物车 -->
-            <div class="header_car fr">
-                <a href="/home/cart/index" target="_blank"><i class="cart_num">{$cartTotal['rows']?:0}</i><span></span>我的购物车</a>
-            </div>
         </div>
     </div>
 </div>
@@ -239,6 +222,20 @@
                         <li class="input">
                             <input type="text" maxlength="15" name="username" id="mobile" class="reVerifiy" value="{:\think\\Cache::get('username')}" required placeholder="请输入用户名">
                             <em class="username-msg"></em>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="fontN">真实姓名：</li>
+                        <li class="input">
+                            <input type="text" maxlength="15" name="identity" id="mobile" class="reVerifiy" value="" required placeholder="请输入真实姓名">
+                            <em class=""></em>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="fontN">身份证号：</li>
+                        <li class="input">
+                            <input type="text" maxlength="18" name="identity" id="mobile" class="reVerifiy" value="" required placeholder="请输入身份证号">
+                            <em class=""></em>
                         </li>
                     </ul>
                     <ul class="yanzheng">

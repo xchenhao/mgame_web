@@ -220,7 +220,7 @@ class User extends Controller
             Session::set('forget_code', $code);
             Util::sendMail([
                 'to' => $mailAccount,
-                'subject' => '【宅喵商城】验证码',
+                'subject' => '【宅喵科技网】验证码',
                 'template' => 'vcode',
                 'payload' => [
                     'code' => $code,

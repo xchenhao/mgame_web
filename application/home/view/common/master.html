@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,maximum-scale=2.0, user-scalable=yes"/>
     <link rel="shortcut icon" href="/favicon.ico"/>
-    {block name="title"}<title>宅喵商城</title>{/block}
+    {block name="title"}<title>宅喵科技网</title>{/block}
 
     <link rel="stylesheet" type="text/css" href="/static/home/index/css/base.css"/>
     <link rel="stylesheet" type="text/css" href="/static/home/index/css/public-new.css"/>
@@ -34,29 +34,29 @@
     <div class="headerLayout cfix">
         <div class="header_logo_new">
             <h1 class="logo_new_v2">
-                <a href="/">宅喵商城</a>
+                <a href="/">宅喵科技网</a>
             </h1>
         </div>
         <?php $user = \think\Session::get('user');?>
         <div class="header_extra">
             {if condition="!$user"}
             <p class="unlogin dc-unlogin">
-                <a href="#" rel="nofollow" class="nav-bold">关于我们</a>
+                <a href="/home/entry/about" rel="nofollow" class="nav-bold">关于我们</a>
                 <i>|</i>
-                <a href="#" rel="nofollow" class="nav-bold">在线充值</a>
+                <a href="/home/entry/recharge" rel="nofollow" class="nav-bold">在线充值</a>
                 <i>|</i>
-                <a href="#" rel="nofollow" class="nav-bold">家长监控</a>
+                <a href="/home/entry/monitor" rel="nofollow" class="nav-bold">家长监控</a>
                 <i>|</i>
                 <a href="/home/user/login" rel="nofollow" class="nav-bold">登录</a>
                 <i>|</i>
                 <a href="/home/user/reg" rel="nofollow" class="nav-bold">注册</a>
             </p>
             {else/}
-            <a href="#" rel="nofollow" class="nav-bold">关于我们</a>
+            <a href="/home/entry/about" rel="nofollow" class="nav-bold">关于我们</a>
             <i>|</i>
-            <a href="#" rel="nofollow" class="nav-bold">在线充值</a>
+            <a href="/home/entry/recharge" rel="nofollow" class="nav-bold">在线充值</a>
             <i>|</i>
-            <a href="#" rel="nofollow" class="nav-bold">家长监控</a>
+            <a href="/home/entry/monitor" rel="nofollow" class="nav-bold">家长监控</a>
             <a href="/home/user/profile" target="_blank" style="height:36px;width:36px;border-radius:50%;overflow: hidden;display: inline-block;margin-left: 10px;">
                 <img id="current_member_avatar" src="{:think\\Session::get('user.avatar') ?: '/static/home/login/images/member_head.jpg'} " height="36" width="36">
             </a>

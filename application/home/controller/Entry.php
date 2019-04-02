@@ -14,11 +14,11 @@ class Entry
 {
     public function index()
     {
-        $cartList = Session::get('cart.goods');
-        $cartTotal['rows'] = Session::get('cart.total_rows');
-        $cartTotal['cost'] = Session::get('cart.total');
-
-        $goods = Goods::model()->where('is_onsale', 1)->paginate(6);
+//        $cartList = Session::get('cart.goods');
+//        $cartTotal['rows'] = Session::get('cart.total_rows');
+//        $cartTotal['cost'] = Session::get('cart.total');
+//
+//        $goods = Goods::model()->where('is_onsale', 1)->paginate(6);
 
         return view('', compact('cartList', 'cartTotal', 'goods'));
     }

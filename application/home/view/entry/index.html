@@ -1,6 +1,6 @@
 {extend name="common/master"}
 
-{block name="title"}<title>商城首页</title>{/block}
+{block name="title"}<title>宅喵科技网</title>{/block}
 
 {block name="css"}
 <link rel="stylesheet" href="/static/home/index/css/okIndex.css"/>
@@ -21,40 +21,29 @@
     <div class="body-content">
         <img class="homepage-title" src="static/home/index/images/homepage-title.png" />
         <div class="homepage-games">
-            <img class="game" data-id="g-1" src="static/home/index/images/game1.png" />
-            <img class="game" data-id="g-2" src="static/home/index/images/game2.png" />
-            <img class="game" data-id="g-3" src="static/home/index/images/game3.png" />
+            {goods rows="3" hot="1"}
+                <img class="game" data-id="g-{$field['num']}" src="{:think\\Config::get('oss.publicUrl') . $field['list_pic']}" />
+            {/goods}
         </div>
         <div class="homepage-gameinfo">
             <img class="gameinfo-bg" src="static/home/index/images/gameinfo-bg.png" />
-            <div class="gameinfo g-1" style="display: block">
+            {goods rows="3" hot="1"}
+            <div class="gameinfo g-{$field['num']}">
                 <img class="gameinfo-arrow" src="static/home/index/images/gameinfo-arrow.png" />
-                <img class="game" src="static/home/index/images/game1.png" />
+                <img class="game" src="{:think\\Config::get('oss.publicUrl') . $field['list_pic']}" />
                 <div class="info">
-                    <div class="title">喵喵爱消除</div>
-                    <div class="desc">一款经典玩法的宝石题材消除游戏。玩法简单，易于上手，适合打发时间。画面还是相当的给力，动画效果也很是炫丽。</div>
-                    <a href="/home/entry/details/gid/1">查看详情</a>
+                    <div class="title">{$field['title']}</div>
+                    <div class="desc">{$field['slogan']}</div>
+                    <a href="/home/entry/details/gid/{$field['gid']}">查看详情</a>
                 </div>               
             </div>
-            <div class="gameinfo g-2">
-                <img class="gameinfo-arrow" src="static/home/index/images/gameinfo-arrow.png" />
-                <img class="game" src="static/home/index/images/game2.png" />
-                <div class="info">
-                    <div class="title">萌宠连连看</div>
-                    <div class="desc">萌宠连连看是一款有着众多可爱卡通动物看的连连游戏，通过一关一关的冒险，萌宠的样子也会发生变化，从最初的幼年形态变成华丽的宠物。快来过关挑战，让可爱的宠物进化成长吧。</div>
-                    <a href="/home/entry/details/gid/2">查看详情</a>
-                </div>               
-            </div>
-            <div class="gameinfo g-3">
-                <img class="gameinfo-arrow" src="static/home/index/images/gameinfo-arrow.png" />
-                <img class="game" src="static/home/index/images/game3.png" />
-                <div class="info">
-                    <div class="title">宅喵科技消消乐</div>
-                    <div class="desc">宅喵主题的消消乐游戏,宅喵文明风格的画面绚丽多彩，给玩家留下了巨大的想象空间。游戏的动画十分出色，落下的岩石会被小人自动搬运，而特别的砖块宝物消除效果十分华丽。被誉为十大奇迹的神秘建筑吸引着玩家在游戏中不断探索……交换。</div>
-                    <a href="/home/entry/details/gid/3">查看详情</a>
-                </div>               
-            </div>
+            {/goods}
         </div>
+        <style>
+            .gameinfo.g-1 {
+                display: block;
+            }
+        </style>
      </div>
 </div>
 

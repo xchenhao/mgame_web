@@ -30,197 +30,18 @@
 
 
 <div class="I-body">
-    <div class="I-nav">
-        <div class="w-1200 nav-list">
-            <span><a href="/" target="_top" style="margin-left:0;">首页</a></span> &gt;
-            {if condition="$cateData['pname']"}
-            <span><a href="/home/entry/lists/cid/{$cateData['pid']}" target="_top">{$cateData['pname']}</a></span>&gt;
-            {/if}
-            <span class="k">{$cateData['cname']}</span>
-            <!-- &gt; -->
-            <!--<span class="k"></span>-->
-            </div>
-        </div>
-    </div>
-
-    <!-- 商品信息 -->
-    <div class="I-info w-1200 cfix">
-        <!-- 图片 -->
-        <div class="info-img">
-            <div class="big-show">
-                <img width="340" height="340" src="{$goodsModel->img_preview[0]}" alt=""/>
-            </div>
-        </div>
-        <!-- 版本 -->
-        <div class="info-v">
-
-            <!--E 商品信息 -->
-            <div class="v-title">
-                <!-- <h2>
-                    <span class="g-icon g-gn"></span>
-                    {$cateData['cname']}
-                </h2> -->
-                <p class="v-a1" style="height:52px;">{$goodsModel->title}</p>
-                <!-- <p class="v-a2">{$goodsModel->slogan}</p> -->
-            </div>
-            <div class="v-info1 cfix">
-                <dl class="cfix">
-                    <div style="margin-bottom:10px;">
-                        <span class="price-label">市场价</span>
-                        <span style="font-size:14px;margin-left:20px;">
-                            &yen;<del style="margin-left:4px;">{$goodsModel->market_price}</del>
-                        </span>
-                    </div>
-                    <span class="price-label">商城价</span>
-                    <span class="v-price" style="margin-left:20px;">
-                        <b class="sku-price" data-price="{$goodsModel->shop_price}">
-                            <span style="margin-right:4px;">&yen;</span>
-                            {$goodsModel->shop_price}
-                        </b>
-                    </span>
-                    <div class="tips-box cfix">
-                        <!--<div class="pri-rd"></div>-->
-                        <div class="eva-num">
-                            <p>{$count}</p>
-                            累计评价
-                        </div>
-                    </div>
-                </dl>
-            </div>
-            <div class="v-info2">
-
-                <dl class="cfix" style="margin-bottom:10px;">
-                    <span class="price-label">分类</span>
-                    <!-- <dt class="margin-min">分类</dt> -->
-                    <dd class="margin-min">
-                        {volist name="$goodsSort" id="v"}
-                            <a title="{$goodsModel->title}" class="v-item" href="javascript:;">
-                                <span class="property">{$v['property']}</span>
-                                <span class="storage" data-storage="{$v['storage']}" style="display: none;">{$v['storage']}</span>
-                                <span class="gsid" style="display: none;">{$v['gsid']}</span>
-                            </a>
-                        {/volist}
-                        <script>
-                            $(function () {
-                                var obj = $('.v-item').eq(0);
-                                obj.addClass('on');
-                                var text = obj.find('.storage').data('storage');
-                                $('#storage').data('storage', text).text(text);
-                            });
-
-                            $('.v-item').click(function () {
-                                $(this).addClass('on').siblings('.v-item').removeClass('on');
-                                var index = $(this).index();
-                                var storageNum = $(this).find('.storage').data('storage');
-                                $('#storage').data('storage', text).text(storageNum);
-                            })
-                        </script>
-                    </dd>
-                </dl>
-
-                <!-- 依据后台类目ID 来判断是否需要组合货源信息-->
-                <dl class="cfix">
-                    <span class="price-label">数量</span>
-                    <!-- <dt>数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量:</dt> -->
-                    <dd>
-                        <div class="num-box" style="color:#959595;">
-                            <input type="text" class="sku-num" value="1"/>
-                            &nbsp;&nbsp;件 <i class="num-tips">(库存&nbsp;<b id="storage"></b>&nbsp;件)</i>
-                        </div>
-                    </dd>
-                </dl>
-            </div>
-            <div class="v-buy">
-                <!-- 库存为0 class="add add-over" -->
-                <a href="javascript:void(0);" class="add add-on"><i></i>加入购物车</a>
-                <!-- 库存为零时 显示到货通知 -->
-                <!--<a href="javascript:void(0);" class="add add-rmd">到货提醒</a>-->
-            </div>
-            <style>
-                .info-v .add i {
-                    margin-top: -6px;
-                    margin-right: 6px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    background-image: url(/static/home/details/images/car.png);
-                }
-            </style>
-        </div>
-
-
-        <!-- 推荐 -->
-        <!-- <div class="info-hot">
-            <h2><i>▍</i>推荐购买</h2>
-            {goods recommend="1" rows="2"}
-                <div class="hot-item">
-                    <a href="{$field['url']}" target="_blank"><img width="130" height="130" src="{$field['list_pic']}"/></a>
-                    <a href="{$field['url']}" target="_blank" class="hot-t1">{$field['title']}</a>
-                    <p>&yen; 3598 </p>
-                </div>
-            {/goods}
-        </div> -->
-    </div>
     <!-- 套餐 -->
     <!-- 商品详情 -->
     <div class="I-dt w-1200 cfix">
         <!-- 内容 -->
         <div>
-            <div class="dt-nav">
-                <a href="#details" class="dt-tap">商品详情</a>
-                <a href="#review" class="dt-tap">评价详情</a>
-            </div>
-            <div class="dt-sec"></div>
 
             <div class="dt-sec">
-                <h2 class="more-h2" id="details">▍商品详情</h2>
                 <div class="dt-con description">
                     {$goodsModel->img_details}
                 </div>
             </div>
-            <div class="dt-sec" id="comment">
-                <h2 id="review">▍评价详情</h2>
-                <div class="dt-com">
-                    <div class="com-h">
-                        满意度：
-                        <span id="total-star" style="position: relative; top: 8px;">
-                          {:str_repeat('<i class="start-red"></i>', $avg_star)}
-                          {:str_repeat('<i class="start-light"></i>', 5 - $avg_star)}
-                        </span>
-                        全部评价: <i class="total-com"> {$count} 条</i>
-                    </div>
-                    <ul class="com-ul" style="margin-top:15px;">
-                        {foreach $comments as $v}
-                        <li>
-                            <div class="use-info">
 
-                                <div style="display: inline-block;background-image: url(<?= think\Config::get('oss.publicUrl') . $v['avatar'] ?>); background-position: center; background-size: 100%; width: 40px; height: 40px; border-radius: 50%;"></div>
-                                <div class="user-details">
-                                    <p>{$v.username}</p>
-                                    <!-- <i>{:str_repeat('*', $v.star)}</i> -->
-                                    <div>
-                                        {:str_repeat('<i class="start-red"></i>', $v.star)}
-                                        {:str_repeat('<i class="start-light"></i>', 5 - $v.star)}
-                                    </div>
-                                </div>
-                                <span class="client"></span>
-                            </div>
-                            <div class="use-msg">
-                                <div>{$v.content}</div>
-                                <p class="com-time">{:date('Y-m-d H:i:s', $v.create_time)}</p>
-                            </div>
-                        </li>
-                        {/foreach}
-                    </ul>
-                </div>
-                <div class="more-com">
-                    {if condition="$count==0 || $count==count($comments)"}
-                    <span class="load-more" data-page="1" data-gid="{$goodsModel->gid}" data-clickable="0" style="color: #ccc">没有更多评论了</span>
-                    {else}
-                    <span class="load-more" data-page="1" data-gid="{$goodsModel->gid}" data-clickable="1"><i></i> 点击加载更多评论...</span>
-                    {/if}
-                </div>
-            </div>
             <style>
                 .start-red, .start-light {
                   display: inline-block;
@@ -420,20 +241,11 @@
 
 
 {block name="js-footer"}
-<!--<script type="text/javascript" src="/static/home/details/js/login.auth.min.js"></script>-->
 
-<!--<script type="text/javascript" src="/static/home/details/js/jquery.cookie.js"></script>-->
-<!--<script type="text/javascript" src="/static/home/details/js/artDialog.js"></script>-->
-<!--<script type="text/javascript" src="/static/home/details/js/public.min.js"></script>-->
-
-<!--<script type="text/javascript" src="/static/home/details/js/analysis.min.js"></script>-->
-<!--<script type="text/javascript" src="/static/home/details/js/muiToolBar-1.0.0.min.js"></script>-->
 <script type="text/javascript" src="/static/home/details/js/jquery-easing.1.3.js"></script>
-<!--<script type="text/javascript" src="/static/home/details/js/sign.js"></script>-->
+
 <script type="text/javascript" src="/static/home/details/js/listScroll.min.js"></script>
 
-<!--<script type="text/javascript" src="/static/home/details/js/bi.com.min.js"></script>-->
-<!--<script type="text/javascript" src="/static/home/details/js/item-1.0.0.min.js"></script>-->
 
 
 
