@@ -1,7 +1,7 @@
 ## Deployment
 
 ```bash
-git clone https://github.com/xchenhao/mini_shop.git
+git clone https://github.com/xchenhao/mgame_web.git
 composer install
 git checkout .
 
