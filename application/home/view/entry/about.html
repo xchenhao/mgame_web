@@ -1,1 +1,84 @@
-关于我们
+{extend name="common/master"}
+{block name="title"}<title>关于我们</title>{/block}
+
+{block name="content"}
+<div class="container">
+    <div class="about-us">
+        <h1><i></i>关于我们</h1>
+        <ul>
+            <li><i></i>负责写游戏的测评、攻略和心得等，游戏组</li>
+            <li><i></i>主要收集玩家的反馈和建议，跟进组</li>
+            <li><i></i>负责制作游戏的强档攻略、宝典等，技术组</li>
+            <li><i></i>对游戏中出现的问题及时解决，维护组</li>
+            <li><i></i>主要负责制作修改器，修改组</li>
+            <li><i></i>专门以制作实况系列为主的补丁等，实况组</li>
+            <li><i></i>制作宣传图和美化图片，以及制作UGC闪亮亮的会员勋章，美工组</li>
+            <li><i></i>论坛活动等进行向其他网站的推广，宣传组</li>
+        </ul>
+    </div>
+    <div class="wait-for-what">
+        <h1>你还在等什么</h1>
+        <h2>我们的事业</h2>
+        <p>网页游戏UGC是近一年多以内异军突起的互联网产品，它基于网站开发技术、以标准http协议为基础表现形式的无客户端或者基于浏览器内核的微客户端游戏。webgame有着引人注目的特点：首先，网页游戏不用下载和安装任何客户端，只要用户的电脑能上网即可享受网页游戏中的快乐；其次，不需要占用大量资源，游戏运行速度快。 国外单款WebGame，已经取得了7000万活跃玩家，长达9年的运营寿命，并持续发展的骄人业绩；而国内网页游戏刚刚起步，可以预料它将成为未来网络游戏行业的翘楚，新网络经济的生力军！</p>
+        <br />
+        <h2>我们的优势</h2>
+        <p>国内最早涉足网页游戏研发与运营的公司之一 强大的研发及运营能力 与众多游戏资讯门户、媒体拥有良好的合作关系 拥有成熟的互联网推广经验与渠道</p>
+    </div>
+</div>
+
+<style>
+    .about-us {
+      padding-bottom: 60px;
+      width: 70%;
+      margin: 0 auto;
+    }
+    .about-us h1 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .about-us h1 i {
+       display: inline-block;
+       width: 6px;
+       height: 20px;
+       background: red;
+       margin-right: 10px;
+    }
+    .about-us ul {
+      width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .about-us ul li {
+      width: 48%;
+      float: left;
+      margin-top: 10px;
+      font-size: 15px;
+      margin-left: 10px;
+    }
+    .about-us ul li i {
+      width: 8px;
+      height: 8px;
+      background: red;
+      display: inline-block;
+      margin-right: 8px;
+    }
+    .wait-for-what {
+      height: 500px;
+      width: 70%;
+      margin: 0 auto;
+    }
+    .wait-for-what h1 {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .wait-for-what h2 {
+      font-size: 18px;
+    }
+    .wait-for-what p {
+      font-size: 15px;
+    }
+</style>
+
+{/block}
