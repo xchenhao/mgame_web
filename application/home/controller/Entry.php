@@ -172,4 +172,22 @@ class Entry
         return view('');
     }
 
+    // 关于我们
+    public function about()
+    {
+        return view('');
+    }
+
+    // 家长监控
+    public function monitor()
+    {
+        return view('');
+    }
+
+    // 在线充值
+    public function recharge()
+    {
+        return view('');
+    }
+
 }
