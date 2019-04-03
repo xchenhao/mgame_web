@@ -6,6 +6,6 @@ composer install
 git checkout .
 
 cd mgame_web
-cp application/database{_bac,}.php
-cp application/config{_bac,}.php
+cp config/db{_bac,}.php
+cp application/main{_bac,}.php
 ```
