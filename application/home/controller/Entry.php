@@ -20,7 +20,7 @@ class Entry
 //
 //        $goods = Goods::model()->where('is_onsale', 1)->paginate(6);
 
-        return view('', compact('cartList', 'cartTotal', 'goods'));
+        return view('');
     }
 
     public function lists()
