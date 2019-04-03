@@ -7,5 +7,5 @@ git checkout .
 
 cd mgame_web
 cp config/db{_bac,}.php
-cp application/main{_bac,}.php
+cp config/main{_bac,}.php
 ```
