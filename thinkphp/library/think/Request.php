@@ -488,6 +488,8 @@ class Request
     }
 
     /**
+     * @link https://www.php.cn/php-weizijiaocheng-417881.html 修复远程代码执行高危漏洞
+     *
      * 当前的请求类型
      * @access public
      * @param bool $method  true 获取原始请求类型
@@ -497,15 +499,21 @@ class Request
     {
         if (true === $method) {
             // 获取原始请求类型
-            return IS_CLI ? 'GET' : (isset($this->server['REQUEST_METHOD']) ? $this->server['REQUEST_METHOD'] : $_SERVER['REQUEST_METHOD']);
+            return $this->server('REQUEST_METHOD') ?: 'GET';
         } elseif (!$this->method) {
             if (isset($_POST[Config::get('var_method')])) {
-                $this->method = strtoupper($_POST[Config::get('var_method')]);
-                $this->{$this->method}($_POST);
+                $method = strtoupper($_POST[Config::get('var_method')]);
+                if (in_array($method, ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'])) {
+                    $this->method = $method;
+                    $this->{$this->method}($_POST);
+                } else {
+                    $this->method = 'POST';
+                }
+                unset($_POST[Config::get('var_method')]);
             } elseif (isset($_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'])) {
                 $this->method = strtoupper($_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE']);
             } else {
-                $this->method = IS_CLI ? 'GET' : (isset($this->server['REQUEST_METHOD']) ? $this->server['REQUEST_METHOD'] : $_SERVER['REQUEST_METHOD']);
+                $this->method = $this->server('REQUEST_METHOD') ?: 'GET';
             }
         }
         return $this->method;
