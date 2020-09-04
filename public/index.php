@@ -9,6 +9,24 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
+foreach($_GET as $key => $value){
+    sql_check($value);
+}
+foreach ($_POST as $key => $value) {
+    sql_check($value);
+}
+foreach ($_COOKIE as $key => $value) {
+    sql_check($value);
+}
+function sql_check($sql_str) {
+    // 自动过滤 SQL 的注入语句
+    $check = preg_match('/select|EXEC|convert|declare|char|truncate|database|and|exec|sleep|cmd|where|set|alter|table|script|\'|\\*|\*|\.\.\/|\.\/|union|into|load_file|outfile/i', $sql_str);
+    if ($check) {
+        header('Location: /');
+        exit();
+    }
+}
+
 // [ 应用入口文件 ]
 
 // 定义应用目录
